@@ -1,4 +1,6 @@
-Sub CreateEmail(to As String, subject As String, body As String, Optional attachment As String, Optional cc As String) As Boolean
+Attribute VB_Name = "Module_Email"
+
+Function CreateEmail(to As String, subject As String, body As String, Optional attachment As String, Optional cc As String) As Boolean
     If isOutlookOpen = False Then
         CreateEmail = False
         Exit Function
@@ -21,9 +23,9 @@ Sub CreateEmail(to As String, subject As String, body As String, Optional attach
     End If
     newemail.Display
     CreateEmail = True
-End Sub
+End Function
 
-Sub isOutlookOpen() As Boolean
+Function isOutlookOpen() As Boolean
     On Error Resume Next
     Set outlook = GetObject(, "Outlook.Application")
     On Error Resume Next
@@ -34,4 +36,4 @@ Sub isOutlookOpen() As Boolean
     Else
         isOutlookOpen = True
     End If
-End Sub
+End Function

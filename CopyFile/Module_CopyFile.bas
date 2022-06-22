@@ -1,5 +1,6 @@
+Attribute VB_Name = "Module_CopyFile"
 
-Sub CopyFile(oldPath As String, newPath As String, targetFolder As String) As Boolean
+Function CopyFile(oldPath As String, newPath As String, targetFolder As String) As Boolean
     Dim v As Variant
     Dim fso As Object
     Set fso = CreateObject("Scripting.FileSystemObject")
@@ -18,4 +19,4 @@ Sub CopyFile(oldPath As String, newPath As String, targetFolder As String) As Bo
         fso.CopyFile oldPath, newPath
         CopyFile = True
     End If
-End Sub
+End Function
